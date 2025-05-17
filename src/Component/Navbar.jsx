@@ -76,16 +76,16 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Icon */}
           <button onClick={toggleMenu} className="md:hidden text-white" aria-label="Toggle Menu">
             {menuOpen ? <RiCloseFill className="text-3xl" /> : <RiMenu3Fill className="text-3xl" />}
           </button>
         </nav>
 
-        {/* Glass-Style Mobile Menu */}
+        {/* Mobile Menu (glass box) */}
         {menuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full min-h-[calc(100vh-4rem)] bg-white/10 backdrop-blur-lg border-t border-white/10 z-40">
-            <ul className="flex flex-col items-center gap-8 py-10 text-base uppercase font-semibold tracking-wide text-white">
+          <div className="md:hidden absolute top-20 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-lg border border-white/10 rounded-xl px-6 py-5 shadow-lg z-40 max-w-xs w-11/12">
+            <ul className="flex flex-col items-center gap-4 text-base uppercase font-semibold tracking-wide text-white">
               <li>
                 <button onClick={() => scrollToSection('home')} className="text-amber-400">
                   HOME
