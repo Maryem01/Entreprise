@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCheckCircle, FaClock, FaUserCheck, FaShieldAlt } from "react-icons/fa";
-import BannerImg from "../../assets/boulbaba.png";
+import BannerImg from "../../assets/historyImg.png";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -82,9 +82,11 @@ const History = () => {
               <FaCheckCircle className="text-amber-500 mt-1" />
               Always focused on reliability and long-term performance.
             </li>
-             <button className="bg-[#f5a623] hover:bg-yellow-500 text-white px-6 py-2 rounded-full shadow font-bold">
-    Contact Us
-  </button>
+           
+<button className="mt-8 bg-amber-500 hover:bg-yellow-500 text-white px-6 py-2 rounded-full shadow font-bold">
+  Contact Us
+</button>
+
           </ul>
         </motion.div>
       </div>

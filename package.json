@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@headlessui/react": "^2.2.3",
     "@tailwindcss/vite": "^4.1.7",
     "@tsparticles/react": "^3.0.0",
     "framer-motion": "^12.12.1",

@@ -17,7 +17,7 @@ const slides = [
 ];
 
 const CategoryThree = () => (
-  <section className="bg-gray-50 py-20">
+  <section className="">
     <AnimatedSlideshow slides={slides} reverse={false} />
   </section>
 );

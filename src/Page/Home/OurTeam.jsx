@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import BannerImg from "../../assets/puzzle.png";
+import { FaClock, FaPhoneAlt, FaTools, FaUserCheck } from "react-icons/fa";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
 
 function OurTeam() {
@@ -34,38 +38,28 @@ function OurTeam() {
   };
 
   return (
-    <section className="relative bg-slate-800 py-16">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+    <section className="bg-slate-800 py-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
 
-        {/* Left Side - Image */}
-        <div className="space-y-4">
-          <div className="rounded-xl overflow-hidden">
-            <img src={BannerImg} alt="Working" className="w-full h-auto rounded-xl shadow-xl" />
-          </div>
-        </div>
-
-        {/* Right Side - Transparent Form */}
+        {/* Left Column: Contact Form */}
         <motion.div
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-white/5 backdrop-blur-lg p-8 rounded-xl shadow-2xl border border-white/10"
+          className="bg-transparent border border-white/20 p-8 rounded-xl shadow-xl max-w-lg w-full mx-auto"
         >
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">
-            Get My Free Report
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-center">
+            Contact Us
           </h2>
 
           <form onSubmit={onSubmit} className="space-y-4">
             {[
-              { name: "name", label: "Full Name", type: "text" },
-              { name: "business", label: "Business Name", type: "text" },
-              { name: "zip", label: "City / Zip Code", type: "text" },
-              { name: "website", label: "Website (Optional)", type: "url" },
-              { name: "phone", label: "Phone", type: "text" },
-              { name: "email", label: "Email", type: "email" },
-            ].map(({ name, label, type }) => (
+              { label: "Name", name: "name", type: "text", placeholder: "Your full name" },
+              { label: "Email", name: "email", type: "email", placeholder: "your@email.com" },
+              { label: "Phone", name: "phone", type: "number", placeholder: "Your phone" },
+            ].map(({ label, name, type, placeholder }) => (
               <div key={name}>
                 <label className="block text-sm font-medium text-white mb-1">
                   {label}
@@ -73,18 +67,31 @@ function OurTeam() {
                 <input
                   type={type}
                   name={name}
-                  required={name !== "website"}
-                  placeholder={label}
-                  className="w-full border border-white/30 rounded px-4 py-3 bg-transparent text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  required
+                  placeholder={placeholder}
+                  className="w-full border border-white/20 rounded bg-transparent px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </div>
             ))}
 
+            <div>
+              <label className="block text-sm font-medium text-white mb-1">
+                Message
+              </label>
+              <textarea
+                name="message"
+                required
+                rows="5"
+                placeholder="Type your message here..."
+                className="w-full border border-white/20 rounded bg-transparent px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              ></textarea>
+            </div>
+
             <button
               type="submit"
-              className="w-full bg-[#f5a623] hover:bg-yellow-500 text-white font-bold px-6 py-3 rounded-full transition"
+              className="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-full transition"
             >
-              SEND MY REPORT
+              Send Message
             </button>
 
             {success && (
@@ -94,9 +101,49 @@ function OurTeam() {
             )}
           </form>
         </motion.div>
-      </div>
-      <div className="w-full h-[2px] bg-white/10 my-20" />
 
+        {/* Right Column: Emergency Info */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeIn}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-white max-w-xl mx-auto"
+        >
+          <h3 className="text-3xl md:text-2xl font-bold text-amber-500 mb-6 flex items-center gap-3">
+            <FaTools className="text-amber-500" />
+            24/7 Emergency Plumbing Services
+          </h3>
+
+          <div className="space-y-6 text-white/80 text-base md:text-md leading-relaxed">
+            <div className="flex items-start gap-3">
+          
+              <p>
+                Plumbing issues can happen anytime — a sudden leak at night or a blocked drain on a weekend.
+                That’s why we offer round-the-clock service to make sure you’re never left dealing with it alone.
+                Our certified technicians are available 24/7 to respond fast and fix the issue properly.
+              </p>
+            </div>
+
+            <div className="flex items-start gap-3">
+              
+              <p>
+                Need urgent help? Just fill in the contact form with a short description of your problem and your phone number.
+                One of our experts will get in touch with you shortly. We prioritize emergency calls to ensure your property and comfort are protected.
+              </p>
+            </div>
+
+            <div className="flex items-start gap-3">
+           
+              <p>
+                With years of experience and fully licensed professionals, you can trust that our service is both safe and efficient.
+                We take pride in quality workmanship, transparency, and fast response — no matter the time or day.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

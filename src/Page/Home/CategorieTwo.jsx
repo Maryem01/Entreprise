@@ -23,7 +23,7 @@ const slides = [
 ];
 
 const CategoryTwo = () => (
-  <section className="bg-white py-20">
+  <section className="">
     <AnimatedSlideshow slides={slides} reverse={true} />
   </section>
 );

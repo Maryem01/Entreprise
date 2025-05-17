@@ -25,6 +25,17 @@ const images = [
   Img10, Img11, Img12, Img13, Img14, Img15, Img16, Img17
 ];
 
+// Animation variant
+const backToFront = {
+  hidden: { opacity: 0, scale: 0.85, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
 const PlumberPoint = () => {
   const [index, setIndex] = useState(0);
   const [prev, setPrev] = useState(null);
@@ -41,37 +52,55 @@ const PlumberPoint = () => {
     <section className="bg-gray-100 py-16">
       {/* Heading + Paragraph */}
       <div className="max-w-5xl mx-auto px-4 text-center mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight">
-          <span className="text-yellow-500">Professional</span>{" "}
+
+        {/* Animated heading */}
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={backToFront}
+          className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight"
+        >
+          <span className="text-amber-500">Professional</span>{" "}
           <span className="text-slate-800">Plumbing</span>{" "}
-          <span className="text-yellow-500">Services</span>{" "}
+          <span className="text-amber-500">Services</span>{" "}
+          <br />
           <span className="text-slate-800">For Your Home & Business</span>
-        </h1>
-        <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
+        </motion.h2>
+
+        {/* Animated paragraph */}
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={backToFront}
+          className="text-gray-600 mt-10 max-w-3xl mx-auto"
+        >
           We provide high-quality plumbing and heating solutions with 24/7 emergency service.
           Our licensed professionals are ready to solve all your plumbing problems quickly and efficiently.
-        </p>
+        </motion.p>
 
-        {/* Feature Row */}
-       {/* Feature Row */}
-{/* Feature Row - Styled like About Us section */}
-<div className="rounded-xl py-6 px-4 mt-10 flex flex-wrap justify-center items-center gap-4">
-  <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
-    <FaClock className="text-[#f5a623]" />
-    24/7 Services
-  </div>
-  <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
-    <FaUserCheck className="text-[#f5a623]" />
-    Licensed Experts
-  </div>
-  <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
-    <FaShieldAlt className="text-[#f5a623]" />
-    Guaranteed Work
-  </div>
- 
-</div>
-
-
+        {/* Animated feature row */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={backToFront}
+          className="rounded-xl py-6 px-4 mt-10 flex flex-wrap justify-center items-center gap-4"
+        >
+          <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
+            <FaClock className="text-amber-500" />
+            24/7 Services
+          </div>
+          <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
+            <FaUserCheck className="text-amber-500" />
+            Licensed Experts
+          </div>
+          <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
+            <FaShieldAlt className="text-amber-500" />
+            Guaranteed Work
+          </div>
+        </motion.div>
       </div>
 
       {/* Image Slideshow */}

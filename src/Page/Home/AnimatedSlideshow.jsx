@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const AnimatedSlideshow = ({ slides, reverse = false }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageVisible, setImageVisible] = useState(false);
@@ -17,7 +12,7 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
@@ -44,20 +39,22 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
   }, []);
 
   return (
-    <section className="relative bg-gray-100 py-20 overflow-hidden">
+    <section className="relative bg-gray-100 py-12 overflow-hidden">
       <div
-        className={`container mx-auto flex flex-col md:flex-row items-center justify-center px-6 md:px-12 gap-y-14 gap-x-12 ${
+        className={`container mx-auto flex flex-col md:flex-row items-center justify-center px-4 md:px-12 gap-y-12 gap-x-16 ${
           reverse ? "md:flex-row-reverse" : ""
         }`}
       >
-        {/* Image Block */}
+        {/* Image */}
         <motion.div
           ref={imageRef}
-          variants={fadeInUp}
-          initial="hidden"
-          animate={imageVisible ? "visible" : "hidden"}
-          transition={{ duration: 0.8 }}
-          className="relative w-full md:w-1/2 max-w-sm h-[300px]"
+          initial={{ opacity: 0, x: reverse ? 100 : -100 }}
+          animate={{
+            opacity: imageVisible ? 1 : 0,
+            x: imageVisible ? 0 : reverse ? 100 : -100,
+          }}
+          transition={{ duration: 1 }}
+          className="relative w-full md:w-1/2 max-w-md h-[350px]"
         >
           <div className="relative w-full h-full flex justify-center items-center">
             <motion.img
@@ -66,9 +63,9 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
               className="w-full h-full object-cover rounded-xl shadow-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: imageVisible ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 1, delay: 0.2 }}
             />
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
               {slides.map((_, index) => (
                 <button
                   key={index}
@@ -84,19 +81,21 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
           </div>
         </motion.div>
 
-        {/* Text Block */}
+        {/* Text */}
         <motion.div
           ref={textRef}
-          variants={fadeInUp}
-          initial="hidden"
-          animate={textVisible ? "visible" : "hidden"}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full md:w-1/2 text-center md:text-left px-4"
+          initial={{ opacity: 0, x: reverse ? -100 : 100 }}
+          animate={{
+            opacity: textVisible ? 1 : 0,
+            x: textVisible ? 0 : reverse ? -100 : 100,
+          }}
+          transition={{ duration: 1 }}
+          className="w-full md:w-1/2 px-4 text-center md:text-left space-y-4"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4 text-balance">
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-950">
             {slides[0].text}
           </h2>
-          <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          <p className="text-slate-600 text-base leading-relaxed">
             {slides[0].description || ""}
           </p>
         </motion.div>
