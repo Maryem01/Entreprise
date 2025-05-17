@@ -63,7 +63,7 @@ const Service = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={backToFront}
-          className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight"
+          className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight py-6"
         >
           <span className="text-slate-800">Our</span>{" "}
           <span className="text-slate-800">Plumbing</span>{" "}

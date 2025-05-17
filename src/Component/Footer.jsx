@@ -4,13 +4,37 @@ import {
   FaGoogle,
   FaInstagram,
   FaLinkedinIn,
-  FaTimes,
   FaMapMarkerAlt,
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
 
 const Footer = () => {
+  // Scroll to section and only trigger arrow if ID is 'projects'
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+
+      // Only attach observer for 'projects'
+      if (id === "projects") {
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            const [entry] = entries;
+            if (entry.isIntersecting) {
+              window.dispatchEvent(new Event("showArrow"));
+              observer.disconnect();
+            }
+          },
+          { threshold: 0.6 }
+        );
+        observer.observe(section);
+      }
+    } else {
+      window.location.href = `/#${id}`;
+    }
+  };
+
   return (
     <footer className="bg-slate-800 text-white">
       {/* Top Divider */}
@@ -36,11 +60,26 @@ const Footer = () => {
         <div>
           <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2 text-sm text-white/80">
-            <li><a href="#" className="hover:text-amber-500">Home</a></li>
-            <li><a href="#" className="hover:text-amber-500">About Us</a></li>
-            <li><a href="#" className="hover:text-amber-500">Services</a></li>
-            <li><a href="#" className="hover:text-amber-500">Emergency</a></li>
-            <li><a href="#" className="hover:text-amber-500">Contact</a></li>
+            <li>
+              <button onClick={() => scrollToSection("home")} className="hover:text-amber-500">
+                Home
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection("projects")} className="hover:text-amber-500">
+                Projects
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection("services")} className="hover:text-amber-500">
+                Services
+              </button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection("contact")} className="hover:text-amber-500">
+                Contact
+              </button>
+            </li>
           </ul>
         </div>
 

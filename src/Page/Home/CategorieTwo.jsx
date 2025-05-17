@@ -18,12 +18,10 @@ const slides = [
   { image: Slide3 },
   { image: Slide4 },
   { image: Slide5 },
- 
-  
 ];
 
 const CategoryTwo = () => (
-  <section className="">
+  <section id="category-two" className="">
     <AnimatedSlideshow slides={slides} reverse={true} />
   </section>
 );

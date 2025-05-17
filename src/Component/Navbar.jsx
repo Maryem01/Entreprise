@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Logo from '../assets/logonav.png';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { RiCloseFill, RiMenu3Fill } from 'react-icons/ri';
 
 const Navbar = () => {
@@ -14,6 +14,13 @@ const Navbar = () => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
+
+      if (id === 'projects') {
+        setTimeout(() => {
+          window.dispatchEvent(new Event('showArrow'));
+        }, 600);
+      }
+
       closeMenu();
     } else {
       window.location.href = `/#${id}`;
@@ -24,46 +31,46 @@ const Navbar = () => {
     <>
       <header className="fixed top-0 left-0 w-full z-50 bg-slate-900/80 h-16 backdrop-blur-md">
         <nav className="container mx-auto flex justify-between items-center h-full px-4 md:px-10">
+          {/* Logo */}
           <div className="flex items-center">
-          <button onClick={() => scrollToSection('home')} className="focus:outline-none">
-  <img src={Logo} alt="Logo" className="h-30 w-auto object-contain" />
-</button>
-
+            <button onClick={() => scrollToSection('home')} className="focus:outline-none">
+              <img src={Logo} alt="Logo" className="h-10 w-auto object-contain" />
+            </button>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex flex-1 justify-center">
-            <ul className="flex gap-10 font-medium items-center text-white text-sm uppercase">
+            <ul className="flex gap-12 font-semibold items-center text-white text-base uppercase tracking-wide">
               <li>
                 <button
                   onClick={() => scrollToSection('home')}
-                  className="text-[#f5a623] transition duration-300"
+                  className="text-amber-400 transition duration-300"
                 >
-                  Home
+                  HOME
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => scrollToSection('projects')}
-                  className="hover:text-[#f5a623] transition duration-300"
+                  className="hover:text-amber-400 transition duration-300"
                 >
-                  Projects
+                  PROJECTS
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="hover:text-[#f5a623] transition duration-300"
+                  className="hover:text-amber-400 transition duration-300"
                 >
-                  Services
+                  SERVICES
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="hover:text-[#f5a623] transition duration-300"
+                  className="hover:text-amber-400 transition duration-300"
                 >
-                  Contact
+                  CONTACT
                 </button>
               </li>
             </ul>
@@ -78,24 +85,24 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden absolute top-16 left-0 w-full bg-slate-900/95 backdrop-blur-md text-white z-40">
-            <ul className="flex flex-col items-center gap-6 py-6 text-sm uppercase font-medium">
+            <ul className="flex flex-col items-center gap-6 py-8 text-base uppercase font-semibold tracking-wide">
               <li>
-                <button onClick={() => scrollToSection('home')} className="text-[#f5a623]">
+                <button onClick={() => scrollToSection('home')} className="text-amber-400">
                   HOME
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('projects')} className="hover:text-[#f5a623]">
+                <button onClick={() => scrollToSection('projects')} className="hover:text-amber-400">
                   PROJECTS
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('services')} className="hover:text-[#f5a623]">
+                <button onClick={() => scrollToSection('services')} className="hover:text-amber-400">
                   SERVICES
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact')} className="hover:text-[#f5a623]">
+                <button onClick={() => scrollToSection('contact')} className="hover:text-amber-400">
                   CONTACT
                 </button>
               </li>

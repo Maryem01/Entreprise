@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaClock, FaPhoneAlt, FaTools, FaUserCheck } from "react-icons/fa";
+import { FaTools } from "react-icons/fa";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -14,26 +14,20 @@ const fadeIn = {
 function OurTeam() {
   const [success, setSuccess] = useState(false);
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
     formData.append("access_key", "33d991f1-602e-4dd0-85a2-39b6fd89a908");
-
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
 
     const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: json,
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(Object.fromEntries(formData)),
     }).then((res) => res.json());
 
     if (res.success) {
       setSuccess(true);
-      event.target.reset();
+      e.target.reset();
     }
   };
 
@@ -41,12 +35,11 @@ function OurTeam() {
     <section id="contact" className="bg-slate-800 py-16">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
 
-        {/* Left Column: Contact Form */}
+        {/* Contact Form */}
         <motion.div
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="bg-transparent border border-white/20 p-8 rounded-xl shadow-xl max-w-lg w-full mx-auto"
         >
@@ -58,7 +51,7 @@ function OurTeam() {
             {[
               { label: "Name", name: "name", type: "text", placeholder: "Your full name" },
               { label: "Email", name: "email", type: "email", placeholder: "your@email.com" },
-              { label: "Phone", name: "phone", type: "number", placeholder: "Your phone" },
+              { label: "Phone", name: "phone", type: "tel", placeholder: "Your phone number" },
             ].map(({ label, name, type, placeholder }) => (
               <div key={name}>
                 <label className="block text-sm font-medium text-white mb-1">
@@ -102,42 +95,31 @@ function OurTeam() {
           </form>
         </motion.div>
 
-        {/* Right Column: Emergency Info */}
+        {/* Emergency Info */}
         <motion.div
+          variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          variants={fadeIn}
-          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-white max-w-xl mx-auto"
         >
           <h3 className="text-3xl md:text-2xl font-bold text-amber-500 mb-6 flex items-center gap-3">
             <FaTools className="text-amber-500" />
-            24/7 Emergency Plumbing Services
+            24/7 Emergency Plumbing
           </h3>
 
-          <div className="space-y-6 text-white/80 text-base md:text-md leading-relaxed">
-            <div className="flex items-start gap-3">
-              <p>
-                Plumbing issues can happen anytime — a sudden leak at night or a blocked drain on a weekend.
-                That’s why we offer round-the-clock service to make sure you’re never left dealing with it alone.
-                Our certified technicians are available 24/7 to respond fast and fix the issue properly.
-              </p>
-            </div>
+          <div className="space-y-6 text-white/80 text-base leading-relaxed">
+            <p>
+              Plumbing issues can happen at any time — a burst pipe, a blocked drain, or a sudden leak. That’s why we’re available 24/7 to help you quickly and professionally.
+            </p>
 
-            <div className="flex items-start gap-3">
-              <p>
-                Need urgent help? Just fill in the contact form with a short description of your problem and your phone number.
-                One of our experts will get in touch with you shortly. We prioritize emergency calls to ensure your property and comfort are protected.
-              </p>
-            </div>
+            <p>
+              Just fill out the contact form and tell us briefly what’s wrong. Make sure to leave your phone number — our team will get in touch with you as soon as possible.
+            </p>
 
-            <div className="flex items-start gap-3">
-              <p>
-                With years of experience and fully licensed professionals, you can trust that our service is both safe and efficient.
-                We take pride in quality workmanship, transparency, and fast response — no matter the time or day.
-              </p>
-            </div>
+            <p>
+              With years of experience and certified technicians, we guarantee fast, reliable service whenever you need it — day or night.
+            </p>
           </div>
         </motion.div>
       </div>
