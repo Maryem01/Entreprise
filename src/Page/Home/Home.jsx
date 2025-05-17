@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div>
         <Hero/>
-        
+        <Service/>
         <Video/>
         
         <CategoryTwo/>
@@ -23,7 +23,7 @@ const Home = () => {
         <CategoryThree/>
         
        <CategoryFour/>
-       <Service/>
+       
         <History/>
         <PlumberPoint/>
        

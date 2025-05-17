@@ -5,6 +5,16 @@ import Icon1 from "../../assets/icon-1.png";
 import Icon2 from "../../assets/icon-2.png";
 import Icon3 from "../../assets/icon-3.png";
 
+// Matching animation variant from PlumberPoint
+const backToFront = {
+  hidden: { opacity: 0, scale: 0.85, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
 
 const ServiceList = [
   {
@@ -26,19 +36,19 @@ const ServiceList = [
     image: Icon3,
   },
   {
-    id: 1,
+    id: 4,
     title: "Bathroom and Kitchen",
     description: "Comprehensive plumbing services for kitchens and bathrooms.",
     image: Icon3,
   },
   {
-    id: 2,
+    id: 5,
     title: "Water Filtration",
     description: "Ensure clean, safe water with our reliable filtration systems.",
     image: Icon2,
   },
   {
-    id: 3,
+    id: 6,
     title: "Pipe Repair",
     description: "Reliable repair and replacement services for damaged pipes.",
     image: Icon1,
@@ -47,26 +57,27 @@ const ServiceList = [
 
 const Service = () => {
   return (
-    <section className=" bg-gray-100 py-16">
-      <div className="container mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+    <section className="bg-gray-100 py-16">
+      <div className="container mx-auto px-6 md:px-12 text-center mb-20">
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mb-12"
+          variants={backToFront}
+          className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 ">
-            Our Plumbing Services
-          </h2>
-          
-        </motion.div>
+          <span className="text-slate-800">Our</span>{" "}
+          <span className="text-slate-800">Plumbing</span>{" "}
+          <span className="text-slate-800">Services</span>
+        </motion.h2>
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ServiceList.map((service, index) => (
             <motion.div
               key={service.id}
-              className="flex flex-col items-start bg-slate-800  p-6 rounded-2xl shadow-md text-white hover:shadow-xl transition"
+              className="flex flex-col items-start bg-slate-800 p-6 rounded-2xl shadow-md text-white hover:shadow-xl transition"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}

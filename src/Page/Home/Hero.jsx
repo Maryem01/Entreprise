@@ -1,24 +1,23 @@
 import React from 'react';
-import NewHeroBg from "../../assets/Gas installatie 2.png"; // make sure this path is correct
+import NewHeroBg from "../../assets/Gas installatie 2.png";
 
 const Hero = () => {
   return (
     <section
-      className="w-full h-screen md:flex md:justify-between items-center px-8 md:px-25 bg-cover bg-center"
+      className="w-full h-screen flex items-center justify-center bg-cover bg-center px-6  md:px-20 "
       style={{ backgroundImage: `url(${NewHeroBg})` }}
     >
-      <div className="space-y-8 text-center md:text-left text-white max-w-xl mx-auto md:mx-0 bg-black/50 p-12 rounded-lg">
-        <p className="font-bold text-[30px] uppercase leading-[1.2]">
-          Your trusted plumbing solutions in Belgique <br />
-           </p>
-          <p>With over 20 years of experience, we have built a reputation for delivering top-notch plumbing solutions tailored to meet your needs.</p>
-       
-        <p className="font-bold text-[34px]">
-        
+      <div className="bg-black/60 p-8 md:p-12 rounded-2xl max-w-2xl text-white text-center md:text-left space-y-6">
+        <h1 className="text-3xl md:text-4xl font-bold leading-tight uppercase">
+          Your Trusted Plumbing Solutions in Belgique
+        </h1>
+
+        <p className="text-base md:text-lg text-gray-200">
+          With over 20 years of experience, we’ve built a reputation for delivering top-notch plumbing solutions tailored to meet your needs.
         </p>
-        <button className="bg-amber-600 hover:bg-slate-900/80 px-6 py-3 rounded-full text-white font-semibold transition duration-300">
-          Explore Our Services
-          <span className="text-lg">  →</span>
+
+        <button className="bg-amber-600 hover:bg-amber-700 px-6 py-3 rounded-full text-white font-semibold transition duration-300">
+          Explore Our Services <span className="ml-2 text-lg">→</span>
         </button>
       </div>
     </section>
