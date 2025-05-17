@@ -100,7 +100,7 @@ const Video = () => {
         <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto space-y-2 py-8">
           We take pride in transforming outdated spaces into modern, functional bathrooms. <br />
           Each project is handled with precision, quality, and care. <br />
-          Discover how we bring your vision to life — from concept to completion.
+         
         </p>
       </motion.div>
 

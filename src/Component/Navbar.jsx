@@ -29,12 +29,12 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-slate-900/80 h-16 backdrop-blur-md">
+      <header className="fixed top-0 left-0 w-full z-50 bg-slate-900/80 h-16 backdrop-blur-md shadow-md">
         <nav className="container mx-auto flex justify-between items-center h-full px-4 md:px-10">
           {/* Logo */}
           <div className="flex items-center">
             <button onClick={() => scrollToSection('home')} className="focus:outline-none">
-              <img src={Logo} alt="Logo" className="h-10 w-auto object-contain" />
+              <img src={Logo} alt="Logo" className="h-30 w-auto object-contain" />
             </button>
           </div>
 
@@ -76,16 +76,16 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Mobile Menu Icon */}
+          {/* Mobile Menu Toggle */}
           <button onClick={toggleMenu} className="md:hidden text-white" aria-label="Toggle Menu">
             {menuOpen ? <RiCloseFill className="text-3xl" /> : <RiMenu3Fill className="text-3xl" />}
           </button>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Glass-Style Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-slate-900/95 backdrop-blur-md text-white z-40">
-            <ul className="flex flex-col items-center gap-6 py-8 text-base uppercase font-semibold tracking-wide">
+          <div className="md:hidden absolute top-16 left-0 w-full min-h-[calc(100vh-4rem)] bg-white/10 backdrop-blur-lg border-t border-white/10 z-40">
+            <ul className="flex flex-col items-center gap-8 py-10 text-base uppercase font-semibold tracking-wide text-white">
               <li>
                 <button onClick={() => scrollToSection('home')} className="text-amber-400">
                   HOME

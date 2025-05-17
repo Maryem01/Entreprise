@@ -10,13 +10,10 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
-  // Scroll to section and only trigger arrow if ID is 'projects'
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-
-      // Only attach observer for 'projects'
       if (id === "projects") {
         const observer = new IntersectionObserver(
           (entries, observer) => {
@@ -37,81 +34,61 @@ const Footer = () => {
 
   return (
     <footer className="bg-slate-800 text-white">
-      {/* Top Divider */}
+      {/* Divider */}
       <div className="border-t border-white/10 mb-10"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-10 pb-12">
-        {/* Left: Logo & Description */}
-        <div>
-          <div className="flex items-center mb-4">
-            <div className="bg-white text-slate-800 font-bold text-xl rounded-md px-2 py-1 mr-2">
-              B
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Logo and Description */}
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center">
+              <div className="bg-white text-slate-800 font-bold text-xl rounded-md px-2 py-1 mr-2">
+                B
+              </div>
+              <h3 className="text-xl font-semibold">Best Plumb Solution</h3>
             </div>
-            <h3 className="text-xl font-semibold">Best Plumb Solution</h3>
+            <p className="text-white/80 text-sm leading-relaxed">
+              Best Plumb Solution delivers expert plumbing and heating services with a focus on quality,
+              speed, and reliability. From installations to emergency repairs, we’re committed to keeping
+              your home or business running smoothly — 24/7.
+            </p>
           </div>
-          <p className="text-white/80 text-sm leading-relaxed">
-            Best Plumb Solution delivers expert plumbing and heating services with a focus on quality,
-            speed, and reliability. From installations to emergency repairs, we’re committed to keeping
-            your home or business running smoothly — 24/7.
-          </p>
-        </div>
 
-        {/* Middle: Quick Links */}
-        <div>
-          <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-2 text-sm text-white/80">
-            <li>
-              <button onClick={() => scrollToSection("home")} className="hover:text-amber-500">
-                Home
-              </button>
-            </li>
-            <li>
-              <button onClick={() => scrollToSection("projects")} className="hover:text-amber-500">
-                Projects
-              </button>
-            </li>
-            <li>
-              <button onClick={() => scrollToSection("services")} className="hover:text-amber-500">
-                Services
-              </button>
-            </li>
-            <li>
-              <button onClick={() => scrollToSection("contact")} className="hover:text-amber-500">
-                Contact
-              </button>
-            </li>
-          </ul>
-        </div>
+          {/* Contact Info */}
+          <div className="flex flex-col gap-4">
+            <h4 className="text-lg font-semibold">Contact Info</h4>
+            <ul className="text-sm text-white/90 space-y-3">
+              <li className="flex items-center gap-3">
+                <FaMapMarkerAlt className="text-amber-500" />
+                <span>123 Waterway Blvd, Brussels, BE 1000</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FaEnvelope className="text-amber-500" />
+                <span>info@bestplumbsolution.com</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FaPhoneAlt className="text-amber-500" />
+                <span>+32 485 123 456</span>
+              </li>
+            </ul>
+          </div>
 
-        {/* Right: Contact Info */}
-        <div>
-          <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-          <ul className="text-sm text-white/90 space-y-3">
-            <li className="flex items-center gap-3">
-              <FaMapMarkerAlt className="text-amber-500" />
-              123 Waterway Blvd, Brussels, BE 1000
-            </li>
-            <li className="flex items-center gap-3">
-              <FaEnvelope className="text-amber-500" />
-              info@bestplumbsolution.com
-            </li>
-            <li className="flex items-center gap-3">
-              <FaPhoneAlt className="text-amber-500" />
-              +32 485 123 456
-            </li>
-          </ul>
-
-          <p className="text-sm mt-6 text-white/80">Follow us on</p>
-          <div className="flex gap-3 mt-3">
-            {[FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn].map((Icon, index) => (
-              <a
-                key={index}
-                href="#"
-                className="bg-amber-500 hover:bg-amber-600 text-white p-2 rounded-full"
-              >
-                <Icon size={14} />
-              </a>
-            ))}
+          {/* Social Icons */}
+          <div className="flex flex-col justify-between gap-4 md:items-end">
+            <div className="mt-1 md:mt-0">
+              <h4 className="text-lg font-semibold mb-2">Follow us</h4>
+              <div className="flex gap-4">
+                {[FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn].map((Icon, index) => (
+                  <a
+                    key={index}
+                    href="#"
+                    className="bg-amber-500 hover:bg-amber-600 text-white p-2 rounded-full transition"
+                  >
+                    <Icon size={16} />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
