@@ -1,7 +1,7 @@
 import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { AiFillCloseCircle, AiOutlineMessage } from "react-icons/ai";
-import { FaFacebookMessenger, FaInstagram } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
+import { FiPhone } from "react-icons/fi";
 import { IoLogoWhatsapp } from "react-icons/io";
 
 export default function ChatModal({ open, setOpen }) {
@@ -9,23 +9,18 @@ export default function ChatModal({ open, setOpen }) {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog
-        as="div"
-        className="relative z-50"
-        initialFocus={cancelButtonRef}
-        onClose={setOpen}
-      >
+      <Dialog as="div" className="relative z-50" initialFocus={cancelButtonRef} onClose={setOpen}>
         {/* Overlay */}
         <Transition.Child
           as={Fragment}
-          enter="ease-out duration-500"
+          enter="ease-out duration-300"
           enterFrom="opacity-0"
           enterTo="opacity-100"
-          leave="ease-in duration-300"
+          leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black/80 transition-opacity" />
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" />
         </Transition.Child>
 
         {/* Modal Container */}
@@ -33,67 +28,63 @@ export default function ChatModal({ open, setOpen }) {
           <div className="flex min-h-full justify-center items-center p-4 text-center sm:p-0">
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-500"
-              enterFrom="opacity-0 translate-y-10 scale-95"
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 translate-y-6 scale-95"
               enterTo="opacity-100 translate-y-0 scale-100"
-              leave="ease-in duration-300"
+              leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 scale-100"
-              leaveTo="opacity-0 translate-y-10 scale-95"
+              leaveTo="opacity-0 translate-y-6 scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-xl bg-slate-900 text-white shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div className="px-6 pt-6 pb-4 sm:p-6">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-2xl bg-white text-gray-800 shadow-xl transition-all w-full max-w-md mx-auto">
+                <div className="p-6">
+
                   {/* Close Icon */}
-                  <AiFillCloseCircle
-                    className="text-white hover:text-red-500 absolute top-4 right-4 text-3xl cursor-pointer transition-all duration-200"
+                  <button
                     onClick={() => setOpen(false)}
-                  />
+                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
+                    aria-label="Close"
+                  >
+                    <AiOutlineClose className="w-6 h-6" />
+                  </button>
 
                   {/* Title */}
-                  <div className="text-center mb-4">
-                    <h2 className="text-2xl font-bold text-amber-400">Hayder Live Support</h2>
-                    <p className="text-sm text-gray-300 mt-2">
-                      Select your preferred contact method below:
+                  <div className="text-center mb-6">
+                    <h2 className="text-xl font-semibold text-gray-900">Contact Our Support</h2>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Choose a contact method below. We're quick to respond.
                     </p>
                   </div>
 
                   {/* Contact Options */}
-                  <div className="grid grid-cols-2 gap-6 py-6">
-                    <Transition.Child
-                      as={Fragment}
-                      enter="transition ease-out duration-700"
-                      enterFrom="opacity-0 scale-75"
-                      enterTo="opacity-100 scale-100"
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* Phone */}
+                    <a
+                      href="tel:+32456359468"
+                      className="flex flex-col items-center bg-blue-50 hover:bg-blue-100 rounded-xl p-4 transition text-center"
                     >
-                      <a href="tel:+32456359468" className="flex flex-col items-center gap-3">
-                        <AiOutlineMessage className="bg-white text-red-500 p-3 rounded-full w-14 h-14 shadow hover:scale-110 transition-all duration-200" />
-                        <span className="text-sm">Live Call</span>
-                      </a>
-                    </Transition.Child>
+                      <div className="bg-blue-600 text-white p-3 rounded-full mb-2">
+                        <FiPhone className="w-6 h-6" />
+                      </div>
+                      <span className="text-sm font-medium text-gray-700">Call</span>
+                    </a>
 
-                    <Transition.Child
-                      as={Fragment}
-                      enter="transition ease-out duration-700 delay-100"
-                      enterFrom="opacity-0 scale-75"
-                      enterTo="opacity-100 scale-100"
+                    {/* WhatsApp */}
+                    <a
+                      href="https://wa.me/32456359468"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex flex-col items-center bg-green-50 hover:bg-green-100 rounded-xl p-4 transition text-center"
                     >
-                     <a
-  href="https://wa.me/32456359468"
-  target="_blank"
-  rel="noreferrer"
-  className="flex flex-col items-center gap-3"
->
-  <IoLogoWhatsapp className="bg-white text-green-500 p-3 rounded-full w-14 h-14 shadow hover:scale-110 transition" />
-  <span className="text-sm text-white">WhatsApp</span>
-</a>
-
-                    </Transition.Child>
+                      <div className="bg-green-500 text-white p-3 rounded-full mb-2">
+                        <IoLogoWhatsapp className="w-6 h-6" />
+                      </div>
+                      <span className="text-sm font-medium text-gray-700">WhatsApp</span>
+                    </a>
                   </div>
 
                   {/* Footer */}
-                  <div className="text-center pt-4 border-t border-gray-700">
-                    <p className="text-xs text-gray-400">
-                      We respond within minutes during working hours.
-                    </p>
+                  <div className="mt-6 text-center text-xs text-gray-400 border-t pt-4">
+                    Available during business hours. Expect a reply within minutes.
                   </div>
                 </div>
               </Dialog.Panel>

@@ -5,7 +5,6 @@ import Icon1 from "../../assets/icon-1.png";
 import Icon2 from "../../assets/icon-2.png";
 import Icon3 from "../../assets/icon-3.png";
 
-// Matching animation variant from PlumberPoint
 const backToFront = {
   hidden: { opacity: 0, scale: 0.85, y: 30 },
   visible: {
@@ -57,7 +56,7 @@ const ServiceList = [
 
 const Service = () => {
   return (
-    <section className="bg-gray-100 py-16">
+    <section id="services" className="bg-gray-100 py-16">
       <div className="container mx-auto px-6 md:px-12 text-center mb-20">
         <motion.h2
           initial="hidden"

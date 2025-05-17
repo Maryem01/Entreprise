@@ -88,7 +88,7 @@ const PlumberPoint = () => {
           variants={backToFront}
           className="rounded-xl py-6 px-4 mt-10 flex flex-wrap justify-center items-center gap-4"
         >
-          <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
+          <div className="flex items-center gap-2 bg-slate-800 px-7 py-2 rounded-full shadow text-sm font-semibold text-white">
             <FaClock className="text-amber-500" />
             24/7 Services
           </div>

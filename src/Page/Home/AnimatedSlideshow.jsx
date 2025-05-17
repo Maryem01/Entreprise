@@ -39,9 +39,9 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
   }, []);
 
   return (
-    <section className="relative bg-gray-100 py-12 overflow-hidden">
+    <section className="relative bg-gray-100 py-8 overflow-hidden">
       <div
-        className={`container mx-auto flex flex-col md:flex-row items-center justify-center px-4 md:px-12 gap-y-12 gap-x-16 ${
+        className={`container mx-auto flex flex-col md:flex-row items-center justify-center px-4 md:px-12  gap-x-16 ${
           reverse ? "md:flex-row-reverse" : ""
         }`}
       >

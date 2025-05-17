@@ -15,13 +15,28 @@ const slides = [
     description:
       "I am experienced in installing complete sanitary systems and handling full bathroom renovations. I work on kitchens, toilets, and showers with a focus on clean finishes and lasting quality. My goal is to deliver modern, functional spaces that meet each client’s needs.",
   },
-  { image: Slide2, text: "Modern Design", description: "Creating bathrooms with sleek, contemporary aesthetics." },
-  { image: Slide3, text: "Functional Layouts", description: "Optimizing space for both style and usability." },
-  { image: Slide4, text: "Premium Finishes", description: "Using high-quality materials for durability and elegance." },
-  { image: Slide5, text: "Tailored Solutions", description: "Custom bathroom designs to suit your personal needs." },
+  {
+    image: Slide2,
+    text: "Modern Design",
+    description: "Creating bathrooms with sleek, contemporary aesthetics.",
+  },
+  {
+    image: Slide3,
+    text: "Functional Layouts",
+    description: "Optimizing space for both style and usability.",
+  },
+  {
+    image: Slide4,
+    text: "Premium Finishes",
+    description: "Using high-quality materials for durability and elegance.",
+  },
+  {
+    image: Slide5,
+    text: "Tailored Solutions",
+    description: "Custom bathroom designs to suit your personal needs.",
+  },
 ];
 
-// Section entrance animation
 const backToFront = {
   hidden: {
     opacity: 0,
@@ -40,7 +55,7 @@ const backToFront = {
 };
 
 const Video = () => (
-  <section className="bg-gray-100 py-12">
+  <section id="projects" className="bg-gray-100 py-20">
     <motion.div
       className="container mx-auto px-6 text-center"
       initial="hidden"

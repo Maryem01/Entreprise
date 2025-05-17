@@ -38,7 +38,7 @@ function OurTeam() {
   };
 
   return (
-    <section className="bg-slate-800 py-16">
+    <section id="contact" className="bg-slate-800 py-16">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
 
         {/* Left Column: Contact Form */}
@@ -118,7 +118,6 @@ function OurTeam() {
 
           <div className="space-y-6 text-white/80 text-base md:text-md leading-relaxed">
             <div className="flex items-start gap-3">
-          
               <p>
                 Plumbing issues can happen anytime — a sudden leak at night or a blocked drain on a weekend.
                 That’s why we offer round-the-clock service to make sure you’re never left dealing with it alone.
@@ -127,7 +126,6 @@ function OurTeam() {
             </div>
 
             <div className="flex items-start gap-3">
-              
               <p>
                 Need urgent help? Just fill in the contact form with a short description of your problem and your phone number.
                 One of our experts will get in touch with you shortly. We prioritize emergency calls to ensure your property and comfort are protected.
@@ -135,7 +133,6 @@ function OurTeam() {
             </div>
 
             <div className="flex items-start gap-3">
-           
               <p>
                 With years of experience and fully licensed professionals, you can trust that our service is both safe and efficient.
                 We take pride in quality workmanship, transparency, and fast response — no matter the time or day.
