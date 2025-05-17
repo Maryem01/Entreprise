@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../assets/logonav.png';
 import { useLocation } from 'react-router-dom';
 import { RiCloseFill, RiMenu3Fill } from 'react-icons/ri';
@@ -27,6 +27,18 @@ const Navbar = () => {
     }
   };
 
+  // Auto-close mobile menu on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (menuOpen) {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [menuOpen]);
+
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 bg-slate-900/80 h-16 backdrop-blur-md shadow-md">
@@ -34,7 +46,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <button onClick={() => scrollToSection('home')} className="focus:outline-none">
-              <img src={Logo} alt="Logo" className="h-30 w-auto object-contain" />
+              <img src={Logo} alt="Logo" className="h-10 w-auto object-contain" />
             </button>
           </div>
 
@@ -82,12 +94,12 @@ const Navbar = () => {
           </button>
         </nav>
 
-        {/* Mobile Menu (glass box) */}
+        {/* Mobile Menu - full width, blue-950 glass-like box */}
         {menuOpen && (
-          <div className="md:hidden absolute top-20 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-lg border border-white/10 rounded-xl px-6 py-5 shadow-lg z-40 max-w-xs w-11/12">
-            <ul className="flex flex-col items-center gap-4 text-base uppercase font-semibold tracking-wide text-white">
+          <div className="md:hidden absolute top-16 left-0 w-full bg-blue-950 border-t border-white/10 backdrop-blur-lg z-40 px-4 py-6">
+            <ul className="flex flex-col items-center gap-5 text-base uppercase font-semibold tracking-wide text-white">
               <li>
-                <button onClick={() => scrollToSection('home')} className="text-amber-400">
+                <button onClick={() => scrollToSection('home')} className="hover:text-amber-400">
                   HOME
                 </button>
               </li>
