@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NewHeroBg from "../../assets/Gas installatie2.png";
 
 const Hero = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = NewHeroBg;
+    img.onload = () => {
+      setIsLoaded(true);
+    };
+  }, []);
+
   const handleScrollToServices = () => {
     const section = document.getElementById('services');
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if (!isLoaded) {
+    return (
+      <section className="w-full h-screen flex items-center justify-center bg-black">
+        <div className="text-white text-lg animate-pulse">Afbeelding laden...</div>
+      </section>
+    );
+  }
 
   return (
     <section
