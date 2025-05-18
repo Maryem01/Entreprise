@@ -42,34 +42,33 @@ const History = () => {
           viewport={{ once: true }}
         >
           <p className="text-amber-500 font-semibold text-sm uppercase tracking-wide">
-            About Us
+            Over Ons
           </p>
 
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Our Company History
+            Onze Bedrijfsgeschiedenis
           </h2>
 
           <p className="text-gray-300 leading-relaxed">
-            We are a trusted team of plumbing professionals with decades of combined experience.
-            Our journey is built on dedication to quality, strong ethics, and long-term customer satisfaction.
+            Wij zijn een betrouwbaar team van loodgieters met tientallen jaren gezamenlijke ervaring. Onze reis is gebaseerd op toewijding aan kwaliteit, sterke waarden en langdurige klanttevredenheid.
           </p>
 
           <ul className="space-y-3 text-sm md:text-base">
             <li className="flex items-start gap-2">
               <FaCheckCircle className="text-amber-500 mt-1" />
-              Over 15 years of hands-on plumbing experience.
+              Meer dan 15 jaar praktische loodgieterservaring.
             </li>
             <li className="flex items-start gap-2">
               <FaCheckCircle className="text-amber-500 mt-1" />
-              Projects delivered for homes, hospitals, and industries.
+             Projecten opgeleverd voor woningen, ziekenhuizen en industrieën.
             </li>
             <li className="flex items-start gap-2">
               <FaCheckCircle className="text-amber-500 mt-1" />
-              Licensed, trained, and safety-focused professionals.
+              Gelicentieerde, getrainde en veiligheidsgerichte professionals.
             </li>
             <li className="flex items-start gap-2">
               <FaCheckCircle className="text-amber-500 mt-1" />
-              Always focused on reliability and long-term performance.
+              Altijd gericht op betrouwbaarheid en langdurige prestaties.
             </li>
           </ul>
 
@@ -78,7 +77,7 @@ const History = () => {
             onClick={() => setIsModalOpen(true)}
             className="mt-8 bg-amber-500 hover:bg-yellow-500 text-white px-6 py-2 rounded-full shadow font-bold"
           >
-            Contact Us
+            Contacteer Ons
           </button>
         </motion.div>
       </div>

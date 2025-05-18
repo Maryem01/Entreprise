@@ -12,7 +12,7 @@ const slides = [
     image: Slide1,
     text: "Verwarming & Warmtepompen",
     description:
-      "I install and maintain heating systems including boilers, radiators, and energy-efficient heat pumps. Every installation is done safely and precisely to ensure long-term performance. I also advise clients on sustainable heating options that reduce energy use.",
+      "Ik installeer en onderhoud verwarmingssystemen zoals condensatieketels, radiatoren, vloerverwarming en energiezuinige warmtepompen. Elke installatie gebeurt veilig, nauwkeurig en volgens de geldende normen. Ik adviseer klanten ook over duurzame verwarmingsopties om energie te besparen en het wooncomfort te verhogen.",
   },
   { image: Slide2 },
   { image: Slide3 },
@@ -21,7 +21,7 @@ const slides = [
 ];
 
 const CategoryTwo = () => (
-  <section id="category-two" >
+  <section id="category-two" className="pt-0 mt-0">
     <AnimatedSlideshow slides={slides} reverse={true} />
   </section>
 );

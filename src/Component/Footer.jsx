@@ -48,19 +48,19 @@ const Footer = () => {
               <h3 className="text-xl font-semibold">Best Plumb Solution</h3>
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
-              Best Plumb Solution delivers expert plumbing and heating services with a focus on quality,
-              speed, and reliability. From installations to emergency repairs, we’re committed to keeping
-              your home or business running smoothly — 24/7.
+              Best Plumb Solution levert professionele loodgieters- en verwarmingsdiensten met focus op kwaliteit,
+              snelheid en betrouwbaarheid. Van installaties tot dringende herstellingen — wij zorgen ervoor dat uw woning
+              of bedrijf vlot blijft functioneren, 24/7.
             </p>
           </div>
 
           {/* Contact Info */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-lg font-semibold">Contact Info</h4>
+            <h4 className="text-lg font-semibold">Contactgegevens</h4>
             <ul className="text-sm text-white/90 space-y-3">
               <li className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-amber-500" />
-                <span>123 Waterway Blvd, Brussels, BE 1000</span>
+                <span>123 Waterway Blvd, Brussel, BE 1000</span>
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-amber-500" />
@@ -76,7 +76,7 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex flex-col justify-between gap-4 md:items-end">
             <div className="mt-1 md:mt-0">
-              <h4 className="text-lg font-semibold mb-2">Follow us</h4>
+              <h4 className="text-lg font-semibold mb-2">Volg ons</h4>
               <div className="flex gap-4">
                 {[FaFacebookF, FaGoogle, FaInstagram, FaLinkedinIn].map((Icon, index) => (
                   <a
@@ -95,7 +95,7 @@ const Footer = () => {
 
       {/* Bottom bar */}
       <div className="bg-slate-900 text-gray-400 text-xs text-center py-4">
-        © 2025 Best Plumb Solution. All rights reserved.
+        © 2025 Best Plumb Solution. Alle rechten voorbehouden.
       </div>
     </footer>
   );

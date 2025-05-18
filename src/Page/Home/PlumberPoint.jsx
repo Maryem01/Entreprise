@@ -49,7 +49,7 @@ const PlumberPoint = () => {
   }, [index]);
 
   return (
-    <section className="bg-gray-100 py-16">
+    <section ection id="Why Choose Us" className="bg-gray-100 py-16">
       {/* Heading + Paragraph */}
       <div className="max-w-5xl mx-auto px-4 text-center mb-12">
 
@@ -61,11 +61,11 @@ const PlumberPoint = () => {
           variants={backToFront}
           className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight"
         >
-          <span className="text-amber-500">Professional</span>{" "}
-          <span className="text-slate-800">Plumbing</span>{" "}
-          <span className="text-amber-500">Services</span>{" "}
+          <span className="text-amber-500">Professionele </span>{" "}
+          <span className="text-slate-800">Loodgietersdiensten</span>{" "}
+          
           <br />
-          <span className="text-slate-800">For Your Home & Business</span>
+          <span className="text-slate-800">Voor Uw Woning & Bedrijf</span>
         </motion.h2>
 
         {/* Animated paragraph */}
@@ -76,8 +76,7 @@ const PlumberPoint = () => {
           variants={backToFront}
           className="text-gray-600 mt-10 max-w-3xl mx-auto"
         >
-          We provide high-quality plumbing and heating solutions with 24/7 emergency service.
-          Our licensed professionals are ready to solve all your plumbing problems quickly and efficiently.
+          Wij bieden hoogwaardige oplossingen voor sanitair en verwarming, met een 24/7 nooddienst. Onze erkende vakmensen staan klaar om al uw loodgietersproblemen snel en efficiënt op te lossen.
         </motion.p>
 
         {/* Animated feature row */}
@@ -88,17 +87,17 @@ const PlumberPoint = () => {
           variants={backToFront}
           className="rounded-xl py-6 px-4 mt-10 flex flex-wrap justify-center items-center gap-4"
         >
-          <div className="flex items-center gap-2 bg-slate-800 px-7 py-2 rounded-full shadow text-sm font-semibold text-white">
+          <div className="flex items-center gap-2 bg-slate-800 px-8 py-2 rounded-full shadow text-sm font-semibold text-white">
             <FaClock className="text-amber-500" />
-            24/7 Services
+            24/7 Dienstverlening
           </div>
           <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
             <FaUserCheck className="text-amber-500" />
-            Licensed Experts
+            Gecertificeerde Experts
           </div>
           <div className="flex items-center gap-2 bg-slate-800 px-5 py-2 rounded-full shadow text-sm font-semibold text-white">
             <FaShieldAlt className="text-amber-500" />
-            Guaranteed Work
+            Gegarandeerd Vakwerk
           </div>
         </motion.div>
       </div>

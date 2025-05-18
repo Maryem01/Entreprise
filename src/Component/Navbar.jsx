@@ -38,8 +38,10 @@ const Navbar = () => {
 
   const navItems = [
     { label: 'HOME', id: 'home' },
-    { label: 'PROJECTS', id: 'projects' },
-    { label: 'SERVICES', id: 'services' },
+    { label: 'PROJECT', id: 'projects' },
+    { label: 'DIENSTEN', id: 'services' },
+    
+    { label: 'WAAROM WIJ', id: 'Why Choose Us' },
     { label: 'CONTACT', id: 'contact' },
   ];
 

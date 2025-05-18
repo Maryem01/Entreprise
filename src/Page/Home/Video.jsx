@@ -14,29 +14,30 @@ const slides = [
     image: Slide1,
     text: "Badkamerrenovaties",
     description:
-      "I am experienced in installing complete sanitary systems and handling full bathroom renovations. I work on kitchens, toilets, and showers with a focus on clean finishes and lasting quality. My goal is to deliver modern, functional spaces that meet each client’s needs.",
+      "Ik heb ervaring met het installeren van complete sanitaire systemen en het uitvoeren van volledige badkamerrenovaties. Ik werk aan keukens, toiletten en douches met oog voor een nette afwerking en duurzame kwaliteit. Mijn doel is om moderne, functionele ruimtes te creëren die aansluiten op de wensen van elke klant.",
   },
   {
     image: Slide2,
     text: "Modern Design",
-    description: "Creating bathrooms with sleek, contemporary aesthetics.",
+    description: "Badkamers met een strak en eigentijds design.",
   },
   {
     image: Slide3,
-    text: "Functional Layouts",
-    description: "Optimizing space for both style and usability.",
+    text: "Functionele Indeling",
+    description: "Ruimtes optimaliseren voor stijl en gebruiksgemak.",
   },
   {
     image: Slide4,
-    text: "Premium Finishes",
-    description: "Using high-quality materials for durability and elegance.",
+    text: "Hoogwaardige Afwerking",
+    description: "Gebruik van kwaliteitsmaterialen voor duurzaamheid en elegantie.",
   },
   {
     image: Slide5,
-    text: "Tailored Solutions",
-    description: "Custom bathroom designs to suit your personal needs.",
+    text: "Maatwerkoplossingen",
+    description: "Badkamers op maat ontworpen naar uw persoonlijke wensen.",
   },
 ];
+
 
 const backToFront = {
   hidden: { opacity: 0, scale: 0.9, y: 30 },
@@ -57,7 +58,6 @@ const Video = () => {
     };
     window.addEventListener("showArrow", showHandler);
 
-    // Scroll listener to hide arrow when section is no longer in view
     const onScroll = () => {
       const section = document.getElementById("projects");
       if (section) {
@@ -86,7 +86,8 @@ const Video = () => {
   };
 
   return (
-    <section id="projects" className="bg-gray-100  relative">
+   <section id="projects" className="bg-gray-100 relative pt-16 pb-0">
+
       <motion.div
         className="container mx-auto px-6 text-center"
         initial="hidden"
@@ -94,13 +95,11 @@ const Video = () => {
         viewport={{ once: true }}
         variants={backToFront}
       >
-        <h1 className="text-blue-950 text-3xl md:text-4xl font-bold leading-snug mb-4">
-          Plumbing and Installations Quality Services
+        <h1 className="text-blue-950 text-3xl md:text-4xl font-bold leading-snug">
+          Loodgieterij en Installaties van Topkwaliteit
         </h1>
-        <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto space-y-2 py-8">
-          We take pride in transforming outdated spaces into modern, functional bathrooms. <br />
-          Each project is handled with precision, quality, and care. <br />
-         
+        <p className="text-slate-700 text-base md:text-lg max-w-2xl mx-auto space-y-2 py-6">
+         We zijn trots op het transformeren van verouderde ruimtes tot moderne, functionele badkamers.
         </p>
       </motion.div>
 

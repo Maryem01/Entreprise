@@ -56,9 +56,9 @@ function OurTeam() {
         >
           <form onSubmit={onSubmit} className="space-y-5">
             {[
-              { label: "Name", name: "name", type: "text", placeholder: "Your full name" },
-              { label: "Email", name: "email", type: "email", placeholder: "your@email.com" },
-              { label: "Phone", name: "phone", type: "tel", placeholder: "Your phone number" },
+              { label: "Naam", name: "name", type: "text", placeholder: "volledige naam" },
+              { label: "E-mailadres", name: "email", type: "email", placeholder: "emaiL" },
+              { label: "Telefoon", name: "phone", type: "tel", placeholder: "telefoonnummer" },
             ].map(({ label, name, type, placeholder }) => (
               <div key={name}>
                 <label className="block text-sm font-medium text-white mb-1">{label}</label>
@@ -73,12 +73,12 @@ function OurTeam() {
             ))}
 
             <div>
-              <label className="block text-sm font-medium text-white mb-1">Message</label>
+              <label className="block text-sm font-medium text-white mb-1">Bericht</label>
               <textarea
                 name="message"
                 required
                 rows="4"
-                placeholder="Type your message..."
+                placeholder="Typ uw bericht..."
                 className="w-full rounded-lg bg-transparent border border-white/30 px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-amber-500"
               ></textarea>
             </div>
@@ -87,12 +87,12 @@ function OurTeam() {
               type="submit"
               className="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-full transition"
             >
-              Send Message
+              Verstuur Bericht
             </button>
 
             {success && (
               <p className="text-green-400 text-sm mt-4 text-center">
-                ✅ Your message has been sent successfully!
+                ✅ Uw bericht is succesvol verzonden!
               </p>
             )}
           </form>

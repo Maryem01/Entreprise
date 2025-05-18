@@ -1,9 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-import Icon1 from "../../assets/icon-1.png";
-import Icon2 from "../../assets/icon-2.png";
-import Icon3 from "../../assets/icon-3.png";
+import {
+  FaSearch,
+  FaTools,
+  FaFireAlt,
+  FaBath,
+  FaTint,
+  FaWrench,
+} from "react-icons/fa";
 
 const backToFront = {
   hidden: { opacity: 0, scale: 0.85, y: 30 },
@@ -18,39 +22,39 @@ const backToFront = {
 const ServiceList = [
   {
     id: 1,
-    title: "Leak Detection",
-    description: "Advanced technology to locate and repair hidden leaks.",
-    image: Icon1,
+    title: "Lekdetectie",
+    description: "Geavanceerde technologie om verborgen lekken op te sporen en te herstellen.",
+    icon: <FaSearch className="w-6 h-6 text-white" />,
   },
   {
     id: 2,
-    title: "Drain Cleaning",
-    description: "Effective unclogging and thorough drain cleaning solutions.",
-    image: Icon2,
+    title: "Afvoer Ontstoppen",
+    description: "Effectieve ontstopping en grondige reiniging van afvoeren.",
+    icon: <FaTools className="w-6 h-6 text-white" />,
   },
   {
     id: 3,
-    title: "Water Heater",
-    description: "Professional installation, service and repair of water heaters.",
-    image: Icon3,
+    title: "Boiler",
+    description: "Professionele installatie, onderhoud en herstelling van boilers.",
+    icon: <FaFireAlt className="w-6 h-6 text-white" />,
   },
   {
     id: 4,
-    title: "Bathroom and Kitchen",
-    description: "Comprehensive plumbing services for kitchens and bathrooms.",
-    image: Icon3,
+    title: "Badkamer en Keuken",
+    description: "Volledige loodgietersdiensten voor keuken en badkamer.",
+    icon: <FaBath className="w-6 h-6 text-white" />,
   },
   {
     id: 5,
-    title: "Water Filtration",
-    description: "Ensure clean, safe water with our reliable filtration systems.",
-    image: Icon2,
+    title: "Waterfiltratie",
+    description: "Zeker van zuiver en veilig water met onze filtersystemen.",
+    icon: <FaTint className="w-6 h-6 text-white" />,
   },
   {
     id: 6,
-    title: "Pipe Repair",
-    description: "Reliable repair and replacement services for damaged pipes.",
-    image: Icon1,
+    title: "Leidingherstelling",
+    description: "Betrouwbare herstelling en vervanging van beschadigde leidingen.",
+    icon: <FaWrench className="w-6 h-6 text-white" />,
   },
 ];
 
@@ -65,9 +69,7 @@ const Service = () => {
           variants={backToFront}
           className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight py-6"
         >
-          <span className="text-slate-800">Our</span>{" "}
-          <span className="text-slate-800">Plumbing</span>{" "}
-          <span className="text-slate-800">Services</span>
+          <span className="text-slate-800">Onze Loodgietersdiensten</span>
         </motion.h2>
       </div>
 
@@ -83,11 +85,7 @@ const Service = () => {
               viewport={{ once: true }}
             >
               <div className="w-14 h-14 flex items-center justify-center bg-amber-500 rounded-full mb-4">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-7 h-7 object-contain"
-                />
+                {service.icon}
               </div>
               <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
               <p className="text-blue-100 text-sm">{service.description}</p>
