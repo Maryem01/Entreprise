@@ -1,5 +1,5 @@
 import React from 'react';
-import NewHeroBg from "../../assets/Gas installatie 2.png";
+import NewHeroBg from "../../assets/Gas installatie2.png";
 
 const Hero = () => {
   const handleScrollToServices = () => {
