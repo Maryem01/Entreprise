@@ -18,23 +18,19 @@ const slides = [
   },
   {
     image: Slide2,
-    text: "Modern Design",
-    description: "Badkamers met een strak en eigentijds design.",
+   
   },
   {
     image: Slide3,
-    text: "Functionele Indeling",
-    description: "Ruimtes optimaliseren voor stijl en gebruiksgemak.",
+  
   },
   {
     image: Slide4,
-    text: "Hoogwaardige Afwerking",
-    description: "Gebruik van kwaliteitsmaterialen voor duurzaamheid en elegantie.",
+  
   },
   {
     image: Slide5,
-    text: "Maatwerkoplossingen",
-    description: "Badkamers op maat ontworpen naar uw persoonlijke wensen.",
+   
   },
 ];
 
