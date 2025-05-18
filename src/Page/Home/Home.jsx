@@ -6,7 +6,7 @@ import History from './History'
 import PlumberPoint from './PlumberPoint'
 import OurTeam from './OurTeam'
 import CategoryTwo from './CategorieTwo'
-import CategoryThree from './CategorieThree'
+
 import CategoryFour from './CategoryFour'
 
 
@@ -20,7 +20,7 @@ const Home = () => {
         
         <CategoryTwo/>
         
-        <CategoryThree/>
+        
         
        <CategoryFour/>
        
