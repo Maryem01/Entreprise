@@ -86,7 +86,7 @@ const Video = () => {
   };
 
   return (
-    <section id="projects" className="bg-gray-100 py-20 relative">
+    <section id="projects" className="bg-gray-100  relative">
       <motion.div
         className="container mx-auto px-6 text-center"
         initial="hidden"

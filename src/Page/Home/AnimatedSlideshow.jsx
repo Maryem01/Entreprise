@@ -9,6 +9,7 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
   const imageRef = useRef(null);
   const textRef = useRef(null);
 
+  // Auto-switch slides
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -16,6 +17,7 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  // Animate image when in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setImageVisible(entry.isIntersecting),
@@ -27,6 +29,7 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
     };
   }, []);
 
+  // Animate text when in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setTextVisible(entry.isIntersecting),
@@ -41,11 +44,11 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
   return (
     <section className="relative bg-gray-100 py-10 overflow-hidden">
       <div
-        className={`container mx-auto flex flex-col md:flex-row items-center justify-center px-4 md:px-12  gap-x-16 ${
+        className={`container mx-auto flex flex-col md:flex-row items-center justify-center gap-x-8 ${
           reverse ? "md:flex-row-reverse" : ""
         }`}
       >
-        {/* Image */}
+        {/* Image Section */}
         <motion.div
           ref={imageRef}
           initial={{ opacity: 0, x: reverse ? 100 : -100 }}
@@ -54,9 +57,9 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
             x: imageVisible ? 0 : reverse ? 100 : -100,
           }}
           transition={{ duration: 1 }}
-          className="relative w-full md:w-1/2 max-w-md h-[350px]"
+          className="w-full md:w-1/2 p-4 md:p-6"
         >
-          <div className="relative w-full h-full flex justify-center items-center">
+          <div className="relative w-full h-[350px] flex justify-center items-center">
             <motion.img
               src={slides[currentSlide].image}
               alt={`Slide ${currentSlide}`}
@@ -81,7 +84,8 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
           </div>
         </motion.div>
 
-        {/* Text */}
+        {/* Text Section */}
+        
         <motion.div
           ref={textRef}
           initial={{ opacity: 0, x: reverse ? -100 : 100 }}
@@ -90,7 +94,7 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
             x: textVisible ? 0 : reverse ? -100 : 100,
           }}
           transition={{ duration: 1 }}
-          className="w-full md:w-1/2 px-4 text-center md:text-left space-y-4"
+          className="w-full md:w-1/2 p-4 md:p-6 text-center md:text-left space-y-6"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-blue-950">
             {slides[0].text}

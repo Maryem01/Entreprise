@@ -21,7 +21,7 @@ const slides = [
 ];
 
 const CategoryTwo = () => (
-  <section id="category-two" className="">
+  <section id="category-two" >
     <AnimatedSlideshow slides={slides} reverse={true} />
   </section>
 );
