@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const AnimatedSlideshow = ({ slides, reverse = false }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageVisible, setImageVisible] = useState(false);
-  const [textVisible, setTextVisible] = useState(false);
+  const [firstTextVisible, setFirstTextVisible] = useState(false);
 
   const imageRef = useRef(null);
   const textRef = useRef(null);
@@ -17,7 +17,7 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  // Animate image when in view
+  // Animate image visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setImageVisible(entry.isIntersecting),
@@ -29,21 +29,15 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
     };
   }, []);
 
-  // Animate text when in view
+  // Trigger first slide text animation once
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setTextVisible(entry.isIntersecting),
-      { threshold: 0.4 }
-    );
-    if (textRef.current) observer.observe(textRef.current);
-    return () => {
-      if (textRef.current) observer.unobserve(textRef.current);
-    };
-  }, []);
+    if (currentSlide === 0 && !firstTextVisible) {
+      setFirstTextVisible(true);
+    }
+  }, [currentSlide, firstTextVisible]);
 
   return (
     <section className="relative bg-gray-100 pt-10 pb-0 overflow-hidden">
-
       <div
         className={`container mx-auto flex flex-col md:flex-row items-center justify-center gap-x-8 ${
           reverse ? "md:flex-row-reverse" : ""
@@ -85,25 +79,23 @@ const AnimatedSlideshow = ({ slides, reverse = false }) => {
           </div>
         </motion.div>
 
-        {/* Text Section */}
-        
-        <motion.div
-          ref={textRef}
-          initial={{ opacity: 0, x: reverse ? -100 : 100 }}
-          animate={{
-            opacity: textVisible ? 1 : 0,
-            x: textVisible ? 0 : reverse ? -100 : 100,
-          }}
-          transition={{ duration: 1 }}
-          className="w-full md:w-1/2 p-4 md:p-6 text-center md:text-left space-y-6"
-        >
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-950">
-            {slides[0].text}
-          </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
-            {slides[0].description || ""}
-          </p>
-        </motion.div>
+        {/* Static Text Section for First Slide — stays visible */}
+        {firstTextVisible && (
+          <motion.div
+            ref={textRef}
+            initial={{ opacity: 0, x: reverse ? -100 : 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="w-full md:w-1/2 p-4 md:p-6 text-center md:text-left space-y-6"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-950">
+              {slides[0].text}
+            </h2>
+            <p className="text-slate-600 text-base leading-relaxed">
+              {slides[0].description || ""}
+            </p>
+          </motion.div>
+        )}
       </div>
     </section>
   );
