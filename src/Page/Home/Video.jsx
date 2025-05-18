@@ -19,7 +19,7 @@ const slides = [
   {
     image: Slide2,
     text: "Modern Design",
-    description: "Badkamersnnnn met een strak en eigentijds design.",
+    description: "Badkamers met een strak en eigentijds design.",
   },
   {
     image: Slide3,
