@@ -1,7 +1,7 @@
 import React from "react";
 import AnimatedSlideshow from "./AnimatedSlideshow";
 
-import Slide1 from "../../assets/Gas Installatie2.png";
+import Slide1 from "../../assets/Gas installatie.png";
 
 
 const slides = [
