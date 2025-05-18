@@ -38,12 +38,47 @@ function OurTeam() {
     <section
       id="contact"
       className="relative bg-cover bg-center bg-no-repeat py-32 px-4"
-      style={{
-        backgroundImage: `url(${NewHeroBg})`,
-      }}
+      style={{ backgroundImage: `url(${NewHeroBg})` }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+      {/* Title and intro */}
+      <motion.div
+        className="relative z-10 max-w-2xl mx-auto text-center mb-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeIn}
+      >
+        <motion.h2
+          className="text-amber-500 text-2xl md:text-3xl font-bold mb-4"
+          initial={{ opacity: 0, y: -30, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          Neem Contact met Ons Op
+        </motion.h2>
+        <motion.p
+          className="text-white/80 text-sm md:text-base"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+          viewport={{ once: true }}
+        >
+          Heeft u vragen over onze diensten of wilt u een offerte aanvragen? Vul het onderstaande formulier in en wij nemen zo snel mogelijk contact met u op.
+        </motion.p>
+        <motion.p
+          className="text-white/80 text-sm md:text-base mt-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
+          viewport={{ once: true }}
+        >
+         
+        </motion.p>
+      </motion.div>
 
       {/* Centered form */}
       <div className="relative z-10 flex justify-center items-center">
@@ -57,7 +92,7 @@ function OurTeam() {
           <form onSubmit={onSubmit} className="space-y-5">
             {[
               { label: "Naam", name: "name", type: "text", placeholder: "volledige naam" },
-              { label: "E-mailadres", name: "email", type: "email", placeholder: "emaiL" },
+              { label: "E-mailadres", name: "email", type: "email", placeholder: "email" },
               { label: "Telefoon", name: "phone", type: "tel", placeholder: "telefoonnummer" },
             ].map(({ label, name, type, placeholder }) => (
               <div key={name}>

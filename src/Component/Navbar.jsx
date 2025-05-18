@@ -38,10 +38,13 @@ const Navbar = () => {
 
   const navItems = [
     { label: 'HOME', id: 'home' },
-    { label: 'PROJECT', id: 'projects' },
     { label: 'DIENSTEN', id: 'services' },
+    { label: 'PROJECT', id: 'projects' },
+    
     
     { label: 'WAAROM WIJ', id: 'Why Choose Us' },
+    
+    { label: 'ÜBER UNS', id: 'Über uns' },
     { label: 'CONTACT', id: 'contact' },
   ];
 

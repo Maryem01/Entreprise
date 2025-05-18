@@ -14,7 +14,7 @@ const History = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="bg-slate-800 py-12 md:py-16 text-white">
+    <section id ="Über uns" className="bg-slate-800 py-12 md:py-16 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12 md:gap-20">
 
         {/* Image Section */}
