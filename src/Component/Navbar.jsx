@@ -40,11 +40,8 @@ const Navbar = () => {
     { label: 'HOME', id: 'home' },
     { label: 'DIENSTEN', id: 'services' },
     { label: 'PROJECT', id: 'projects' },
-    
-    
+     { label: 'ÜBER UNS', id: 'Über uns' },
     { label: 'WAAROM WIJ', id: 'Why Choose Us' },
-    
-    { label: 'ÜBER UNS', id: 'Über uns' },
     { label: 'CONTACT', id: 'contact' },
   ];
 
