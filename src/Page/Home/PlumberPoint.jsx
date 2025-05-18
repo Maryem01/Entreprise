@@ -9,7 +9,7 @@ import Img4 from "../../assets/Badkamerrenovatie2.png";
 import Img5 from "../../assets/Badkamerrenovatie3.png";
 import Img6 from "../../assets/Badkamerrenovatie4.png";
 import Img7 from "../../assets/Badkamerrenovatie1.png";
-import Img8 from "../../assets/Gas installatie2.png";
+import Img8 from "../../assets/Gas installatie2.jpg";
 import Img9 from "../../assets/Gas installatie3.png";
 import Img10 from "../../assets/Gas installatie.png";
 import Img11 from "../../assets/Sanitair1.png";

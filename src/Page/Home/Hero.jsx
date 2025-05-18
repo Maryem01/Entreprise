@@ -1,5 +1,5 @@
 import React from 'react';
-import NewHeroBg from "../../assets/Gas installatie2.png"; // Zorg dat dit geoptimaliseerd is!
+import NewHeroBg from "../../assets/Gas installatie2.jpg"; // Zorg dat dit geoptimaliseerd is!
 
 const Hero = () => {
   const handleScrollToServices = () => {
